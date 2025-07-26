@@ -84,33 +84,19 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 0;
-        }
-
-        .hero-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: var(--primary-color);
+            padding: 100px 0;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--secondary-color);
             max-width: 600px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .social-links {
@@ -163,29 +149,67 @@
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .about-text {
-            line-height: 1.8;
-        }
-
-        .about-text h3 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-
-        .about-image {
+        .about-intro {
             text-align: center;
+            margin-bottom: 40px;
         }
 
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .about-intro h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-intro .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .about-card {
+            background: var(--background-color);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .about-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .about-card p {
+            line-height: 1.6;
+            color: var(--text-color);
         }
 
         .skills-container {
@@ -475,19 +499,28 @@
             }
 
             .hero {
-                padding: 40px 0;
+                padding: 60px 0;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .about-content {
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-intro h3 {
+                font-size: 1.8rem;
+            }
+
+            .about-cards {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .about-image {
-                grid-row: 1;
+            .about-card {
+                padding: 20px;
             }
 
             .section-title {
@@ -500,11 +533,6 @@
         }
 
         @media (max-width: 480px) {
-            .hero-img {
-                width: 120px;
-                height: 120px;
-            }
-
             .nav-links {
                 flex-wrap: wrap;
                 gap: 10px;
@@ -514,6 +542,10 @@
             .social-links {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -536,7 +568,6 @@
     </header>
 
     <section id="home" class="hero">
-        <!-- <div class="hero-img">DK</div> -->
         <h1>Daksh Kansal</h1>
         <p>BTech Computer Science Student | Web Developer</p>
         <div class="social-links">
@@ -550,19 +581,38 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-intro">
                     <h3>👋 Hello, I'm Daksh!</h3>
-                    <p>💻 BTech CSE student at Chitkara University, passionate about web dev & software engineering.</p>
-                    <p>🚀 I'm dedicated to expanding my knowledge in various programming languages and technologies.</p>
-                    <p>🌐 When I'm not coding, I'm exploring new technologies, contributing to open-source projects.</p>
+                    <p class="subtitle">Passionate Developer | Problem Solver | Tech Enthusiast</p>
                 </div>
-                <div class="about-image">
-                    <img src="img.jpg" alt="Daksh Profile Image" style="max-width: auto; height: auto; border-radius: 10px;">
+                
+                <div class="about-cards">
+                    <div class="about-card">
+                        <span class="about-card-icon">🎓</span>
+                        <h4>Education</h4>
+                        <p>BTech CSE student at Chitkara University with a strong academic record (8.73 CGPA), focusing on modern software development practices and emerging technologies.</p>
+                    </div>
+                    
+                    <!-- <div class="about-card">
+                        <span class="about-card-icon">💻</span>
+                        <h4>Development</h4>
+                        <p>Passionate about web development and software engineering. I love creating responsive, user-friendly applications using modern frameworks and technologies.</p>
+                    </div> -->
+                    
+                    <div class="about-card">
+                        <span class="about-card-icon">🚀</span>
+                        <h4>Growth Mindset</h4>
+                        <p>Dedicated to continuous learning and expanding my knowledge in various programming languages, frameworks, and cutting-edge technologies in the ever-evolving tech landscape.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <span class="about-card-icon">🌐</span>
+                        <h4>Community</h4>
+                        <p>When I'm not coding, I'm exploring new technologies, contributing to open-source projects, and staying updated with the latest industry trends and best practices.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        
     </section>
 
     <section id="skills" class="skills">
